@@ -5,14 +5,11 @@ import com.demo.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class UserMapperTest {
-
+public class UserMaaperTest {
     @Test
-    public void tt(){
+    public void test(){
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         List<User> userList = mapper.getUserList();
@@ -21,5 +18,4 @@ public class UserMapperTest {
         }
         sqlSession.close();
     }
-
 }
