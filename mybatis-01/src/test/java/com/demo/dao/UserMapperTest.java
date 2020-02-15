@@ -3,6 +3,8 @@ package com.demo.dao;
 import com.demo.pojo.User;
 import com.demo.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -97,5 +99,15 @@ public class UserMapperTest {
 
         sqlSession.close();
 
+    }
+
+    @Test
+    public void log(){
+        Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
+        logger.trace("trace level");
+        logger.debug("debug level");
+        logger.info("info level");
+        logger.error("error level");
+        logger.fatal("fatal level");
     }
 }
