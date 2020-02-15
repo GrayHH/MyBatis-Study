@@ -7,9 +7,9 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class UserMapperTest {
+
 
     @Test
     public void like(){
@@ -56,7 +56,11 @@ public class UserMapperTest {
     public void add(){
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        mapper.addUser(new User(4,"哈哈","123"));
+        for (int i = 5; i < 100; i++) {
+
+            mapper.addUser(new User(i,"哈哈","123"));
+        }
+
         sqlSession.commit();
         sqlSession.close();
     }
@@ -77,5 +81,21 @@ public class UserMapperTest {
         mapper.deleteUser(4);
         sqlSession.commit();
         sqlSession.close();
+    }
+
+    @Test
+    public void getLimit(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
+        map.put("startIndex",0);
+        map.put("pageSize",4);
+        List<User> userList= mapper.getUserByLimit(map);
+        for (User user : userList) {
+            System.out.println(user);
+        }
+
+        sqlSession.close();
+
     }
 }

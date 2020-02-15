@@ -1,20 +1,34 @@
 package com.demo.dao;
 
 import com.demo.pojo.User;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 import java.util.Map;
 
 public interface UserMapper {
+
+    @Select("select * from demo.user where name like \"%\"#{value}\"%\"")
     List<User> getUserLike(String name);
-    //获取全部用户
+
+    @Select("select * from demo.user")
     List<User> getUserList();
-    //根据ID查询
+
+    @Select("select * from demo.user where id = #{id}")
     User getUserById(int id);
-    //增加
+
+    @Insert("insert into demo.user (id, name, pwd) values (#{id},#{name},#{pwd});")
     int addUser(User user);
-    //修改
+
+    @Update("update demo.user set name=#{name},pwd=#{pwd} where id = #{id}")
     int updataUser(User user);
-    //删除
+
+    @Delete("delete from demo.user where id = #{id};")
     int deleteUser(int id);
+
+    @Select("select * from demo.user limit #{startIndex},#{pageSize}")
+    List<User> getUserByLimit(Map<String,Integer> map);
 }
