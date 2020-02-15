@@ -12,7 +12,7 @@
         <Logger name="timlog" level="trace" additivity="true">
             <AppenderRef ref="TimFile" />
         </Logger>
-        <Root level="error">
+        <Root level="debug">
             <AppenderRef ref="Console" />
         </Root>
     </Loggers>

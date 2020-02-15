@@ -11,9 +11,9 @@
         <setting name="logImpl" value="LOG4J2"/>
     </settings>
 
-    <typeAliases>
+    <!--<typeAliases>
         <typeAlias type="com.demo.pojo.User" alias="user"/>
-    </typeAliases>
+    </typeAliases>-->
 
     <!--environments配置环境组-->
     <!--default默认环境-->
@@ -34,5 +34,6 @@
 
     <mappers>
         <mapper class="com.demo.dao.UserMapper"/>
+        <!--<mapper resource="com/demo/dao/UserMapper.xml"/>-->
     </mappers>
 </configuration>
