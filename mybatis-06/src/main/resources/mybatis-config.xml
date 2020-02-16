@@ -11,9 +11,10 @@
         <setting name="logImpl" value="LOG4J2"/>
     </settings>
 
-    <!--<typeAliases>
-        <typeAlias type="com.demo.pojo.User" alias="user"/>
-    </typeAliases>-->
+    <typeAliases>
+        <typeAlias type="com.demo.pojo.Student" alias="Student"/>
+        <typeAlias type="com.demo.pojo.Teacher" alias="Teacher"/>
+    </typeAliases>
 
     <!--environments配置环境组-->
     <!--default默认环境-->
