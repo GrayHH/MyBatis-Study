@@ -10,10 +10,11 @@
     <settings>
         <setting name="logImpl" value="LOG4J2"/>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="cacheEnabled" value="true"/>
     </settings>
 
     <typeAliases>
-        <package name="com.demo.pojo"/>
+        <typeAlias type="com.demo.pojo.User" alias="User"/>
     </typeAliases>
 
     <!--environments配置环境组-->
@@ -34,6 +35,6 @@
     </environments>
 
     <mappers>
-        <mapper class="com.demo.dao.BlogMapper"/>
+        <mapper class="com.demo.dao.UserMapper"/>
     </mappers>
 </configuration>
